@@ -3,49 +3,50 @@ import { useEffect } from 'react';
 export const useScrollSnap = () => {
   useEffect(() => {
     let isScrolling = false;
+    let scrollTimeout: NodeJS.Timeout;
 
     const handleScroll = () => {
       if (isScrolling) return;
       
-      const sections = document.querySelectorAll('section');
-      const scrollTop = window.scrollY;
-      const windowHeight = window.innerHeight;
+      clearTimeout(scrollTimeout);
       
-      // Find the current section
-      let currentSectionIndex = 0;
-      sections.forEach((section, index) => {
-        const sectionTop = section.offsetTop;
-        if (scrollTop >= sectionTop - windowHeight / 2) {
-          currentSectionIndex = index;
-        }
-      });
-
-      // Auto-snap to sections on scroll
-      const currentSection = sections[currentSectionIndex];
-      if (currentSection) {
-        const sectionTop = currentSection.offsetTop;
-        const diff = Math.abs(scrollTop - sectionTop);
+      scrollTimeout = setTimeout(() => {
+        const sections = document.querySelectorAll('section');
+        const scrollTop = window.scrollY;
+        const windowHeight = window.innerHeight;
         
-        // If we're close to a section boundary, snap to it
-        if (diff > 50 && diff < windowHeight / 3) {
+        // Find the section we're closest to
+        let closestSection = sections[0];
+        let closestDistance = Math.abs(scrollTop - closestSection.offsetTop);
+        
+        sections.forEach((section) => {
+          const distance = Math.abs(scrollTop - section.offsetTop);
+          if (distance < closestDistance) {
+            closestDistance = distance;
+            closestSection = section;
+          }
+        });
+
+        // Only snap if we're reasonably close to a section
+        if (closestDistance < windowHeight * 0.3) {
           isScrolling = true;
+          
           window.scrollTo({
-            top: sectionTop,
+            top: closestSection.offsetTop,
             behavior: 'smooth'
           });
           
           setTimeout(() => {
             isScrolling = false;
-          }, 1000);
+          }, 800);
         }
-      }
+      }, 150);
     };
 
-    const throttledScroll = () => {
-      setTimeout(handleScroll, 100);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(scrollTimeout);
     };
-
-    window.addEventListener('scroll', throttledScroll);
-    return () => window.removeEventListener('scroll', throttledScroll);
   }, []);
 };

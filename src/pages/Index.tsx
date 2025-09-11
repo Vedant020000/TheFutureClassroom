@@ -53,6 +53,7 @@ const Index = () => {
           title={feature.title}
           description={feature.description}
           icon={feature.icon}
+          reverse={index % 2 === 1}
         />
       ))}
       <ProgressSection />
