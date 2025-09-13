@@ -17,25 +17,25 @@ const Index = () => {
       title: "Chat",
       description: "Engage in natural conversations with your AI teaching assistant. Get instant lesson ideas, teaching strategies, and personalized recommendations based on your classroom needs.",
       icon: MessageSquare,
-      videoSrc: "/Chat.mp4"
+      videoSrc: "/TheFutureClassroom/Chat.mp4"
     },
     {
       title: "Students",
       description: "Manage comprehensive student profiles with learning preferences, progress tracking, and personalized accommodations. Keep all student context in one secure place.",
       icon: Users,
-      videoSrc: "/Students.mp4"
+      videoSrc: "/TheFutureClassroom/Students.mp4"
     },
     {
       title: "Lesson Bank",
       description: "Access a growing library of lesson templates, activities, and resources. Save, organize, and share your favorite teaching materials with colleagues.",
       icon: BookOpen,
-      videoSrc: "/Lesson Bank.mp4"
+      videoSrc: "/TheFutureClassroom/Lesson Bank.mp4"
     },
     {
       title: "Resources",
       description: "Upload, organize, and reference your teaching materials with smart tagging and search. Link documents, videos, and other resources to your lessons.",
       icon: Settings,
-      videoSrc: "/Resources.mp4"
+      videoSrc: "/TheFutureClassroom/Resources.mp4"
     },
   ];
 
