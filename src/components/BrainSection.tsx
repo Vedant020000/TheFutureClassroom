@@ -66,17 +66,6 @@ const BrainSection = () => {
       const minRingRadiusForCard = brainOuterRadius + 150 + (cardRect.height / 2);
       setRingRadius(Math.max(minRingRadiusForCard, Math.min(400, maxAvailableRadius - (cardRect.height / 2) - 50)));
 
-      // Remove console.log statements after debugging
-      console.log("BrainSection Layout:");
-      console.log("  Container Rect:", rect.width, rect.height);
-      console.log("  Card Rect:", cardRect.width, cardRect.height);
-      console.log("  Center:", cx, cy);
-      console.log("  Brain Outer Radius:", brainOuterRadius);
-      console.log("  Min Ring Radius For Card:", minRingRadiusForCard);
-      console.log("  Max Available Radius:", maxAvailableRadius);
-      console.log("  Calculated Ring Radius:", ringRadius);
-      console.log("  Connector Start Radius:", connectorStartRadius);
-      console.log("  Connector End Radius:", connectorEndRadius);
     };
 
     computeLayout();
