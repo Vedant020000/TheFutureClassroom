@@ -63,7 +63,7 @@ const DevelopmentSection = () => {
 
         <div className="grid lg:grid-cols-2 gap-16">
           <div>
-            <h3 className="text-3xl font-bold mb-8 text-accent">MVP Features</h3>
+            <h3 className="text-3xl font-bold mb-8 text-foreground">MVP Features</h3>
             <div className="space-y-8">
               {mvpFeatures.map((feature, index) => (
                 <div key={index} className="card-hover rounded-lg p-6">
@@ -76,7 +76,7 @@ const DevelopmentSection = () => {
                   <p className="text-muted-foreground mb-3 leading-relaxed">
                     {feature.description}
                   </p>
-                  <p className="text-sm text-accent">
+                  <p className="text-sm text-foreground">
                     Why it matters: {feature.why}
                   </p>
                 </div>
@@ -85,7 +85,7 @@ const DevelopmentSection = () => {
           </div>
 
           <div>
-            <h3 className="text-3xl font-bold mb-8 text-accent">Moonshots</h3>
+            <h3 className="text-3xl font-bold mb-8 text-foreground">Moonshots</h3>
             <div className="space-y-8">
               {moonshots.map((moonshot, index) => (
                 <div key={index} className="card-hover rounded-lg p-6">
@@ -104,7 +104,7 @@ const DevelopmentSection = () => {
           </div>
         </div>
 
-        <div className="mt-16 p-8 bg-card rounded-xl border border-accent/20">
+        <div className="mt-16 p-8 bg-card rounded-xl border border-foreground/20">
           <blockquote className="text-lg text-muted-foreground italic mb-4 leading-relaxed">
             "I used to spend Sunday nights drafting lessons. With Slate's lesson cards and student context, I finished planning for two weeks in one hour — and the AI suggested modifications that helped three students reach the learning goal."
           </blockquote>
